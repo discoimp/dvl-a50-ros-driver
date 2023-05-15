@@ -1,3 +1,12 @@
+Updated for ROS Noetic
+Python3
+using catkin build 
+```
+sudo apt update && sudo apt install -y python3-catkin-tools
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws
+catkin config --init --mkdirs --extend /opt/ros/$ROS_DISTRO --merge-devel --cmake-args -DCMAKE_BUILD_TYPE=Release
+```
 # Water Linked DVL A50 - ROS Package
 
 A ROS package for the Water Linked DVL A50. Along with a subscribing client for easy visualization of the communication through ROS.
@@ -18,7 +27,7 @@ cd ~/catkin_ws/src
 git clone -b master https://github.com/discoimp/dvl-a50-ros-driver.git
 if [[ $(python --version 2>&1) =~ "Python 3" ]]; then sed -i '' '1s/python$/python3/' dvl-a50-ros-driver/scripts/{publisher.py,subscriber.py,subscriber_gui.py}; fi
 cd ~/catkin_ws
-catkin_make
+[[ -d .catkin_tools ]] && catkin build || catkin_make
 ```
 
 ### Usage
