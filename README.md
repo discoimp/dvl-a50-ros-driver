@@ -13,7 +13,8 @@ The package has been tested with ROS Kinetic, and should work with most distros 
 Assuming you created your catkin workspace at the default location. And have git installed. The below steps should work:
 ```bash
 cd ~/catkin_ws/src
-git clone -b master https://github.com/waterlinked/dvl-a50-ros-driver.git
+# [waterlinked repos](https://github.com/waterlinked/dvl-a50-ros-driver.git) is missing a [python3 fix for publisher.py](https://github.com/discoimp/dvl-a50-ros-driver/commit/287ebe1b61a2d91697ebd99ac5b2f8611ebc0349)
+git clone -b master https://github.com/discoimp/dvl-a50-ros-driver.git
 if [[ $(python --version 2>&1) =~ "Python 3" ]]; then sed -i '' '1s/python$/python3/' dvl-a50-ros-driver/scripts/{publisher.py,subscriber.py,subscriber_gui.py}; fi
 cd ~/catkin_ws
 catkin_make
