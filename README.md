@@ -14,6 +14,7 @@ Assuming you created your catkin workspace at the default location. And have git
 ```bash
 cd ~/catkin_ws/src
 git clone -b master https://github.com/waterlinked/dvl-a50-ros-driver.git
+if [[ $(python --version 2>&1) =~ "Python 3" ]]; then sed -i '' '1s/python$/python3/' dvl-a50-ros-driver/scripts/{publisher.py,subscriber.py,subscriber_gui.py}; fi
 cd ~/catkin_ws
 catkin_make
 ```
